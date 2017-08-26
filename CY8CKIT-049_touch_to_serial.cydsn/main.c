@@ -1,8 +1,6 @@
 #include <project.h>
 #include <stdlib.h>
-//#include <stdio.h>
 
-#define STR_LENGTH 256
 #define TOUCH_NUM CapSenseP4_TOTAL_CSD_WIDGETS
 
 #define BUFFER_SIZE 5
@@ -21,10 +19,7 @@ void UpdateCapSense(void);
 void DetectHandPosition(int hand_position[2], int touch_bool[TOUCH_NUM]);
 int DetectHandMotion(int hand_position[2], int hand_motion[2]);
 void SendHandDataIfMoved(int hand_position[2], int hand_motion[2]);
-char GetMotionChar(int motion);
 void SetI2CBuffer(int touch_bool[TOUCH_NUM], int hand_motion[2]);
-
-char message[STR_LENGTH];
 
 unsigned char ezI2C_buffer[BUFFER_SIZE] = {};
 
@@ -129,14 +124,8 @@ int DetectHandMotion(int hand_position[2], int hand_motion[2]) {
     return hand_moved;
 }
 
-char GetMotionChar(int motion) {
-    static const char motion_char[3] = {'<', '_', '>'};
-    return motion_char[motion + 1];
-}
-
 void SetI2CBuffer(int touch_bool[TOUCH_NUM], int hand_motion[2]) {
-    int i, j;
-    int address;
+    int i;
     for(i = 0; i < BUFFER_SIZE; i++) {
         ezI2C_buffer[i] = 0;
     }
@@ -149,15 +138,6 @@ void SetI2CBuffer(int touch_bool[TOUCH_NUM], int hand_motion[2]) {
         ezI2C_buffer[0] |= 0x02;
     } else if(hand_motion[1] == RIGHT) {
         ezI2C_buffer[0] |= 0x01;
-    }
-    for(i = 0; i < BUFFER_SIZE - 1; i++) {
-        for(j = 0; j < 8; j++) {
-            address = i * 8 + j;
-            if(address >= TOUCH_NUM) {
-                address = TOUCH_NUM - 1;
-            }
-            ezI2C_buffer[i + 1] |= (touch_bool[address] << (7 - j));
-        }
     }
     for(i = 0; i < TOUCH_NUM; i++) {
         ezI2C_buffer[(i / 8) + 1] |= (touch_bool[i] << (7 - (i % 8)));
