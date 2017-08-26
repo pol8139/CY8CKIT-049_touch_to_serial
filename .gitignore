@@ -9,3 +9,4 @@
 *.cydsn/codegentemp
 *.cydsn/CortexM0
 *.cydsn/Generated_Source
+*.pdf

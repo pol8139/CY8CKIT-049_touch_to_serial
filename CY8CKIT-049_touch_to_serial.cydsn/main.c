@@ -1,9 +1,11 @@
 #include <project.h>
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 #define STR_LENGTH 256
 #define TOUCH_NUM CapSenseP4_TOTAL_CSD_WIDGETS
+
+#define BUFFER_SIZE 5
 
 #define TRUE 1
 #define FALSE 0
@@ -13,15 +15,18 @@
 #define RIGHT 1
 
 void InitUART(void);
+void InitI2C(void);
 void InitCapSense(void);
 void UpdateCapSense(void);
 void DetectHandPosition(int hand_position[2], int touch_bool[TOUCH_NUM]);
 int DetectHandMotion(int hand_position[2], int hand_motion[2]);
 void SendHandDataIfMoved(int hand_position[2], int hand_motion[2]);
 char GetMotionChar(int motion);
-void SendUARTKB(int motion);
+void SetI2CBuffer(int touch_bool[TOUCH_NUM], int hand_motion[2]);
 
 char message[STR_LENGTH];
+
+unsigned char ezI2C_buffer[BUFFER_SIZE] = {};
 
 static const int motion_list[3] = {LEFT, MIDDLE, RIGHT};
 
@@ -31,28 +36,16 @@ int main() {
     
     PWM_2_Start();
     InitUART();
+    InitI2C();
     InitCapSense();
     int hand_position[2];
     int touch_bool[TOUCH_NUM];
     int hand_motion[2] = {MIDDLE, MIDDLE};
-    int i;
     while(1) {
         if(!CapSenseP4_IsBusy()) {
             DetectHandPosition(hand_position, touch_bool);
             if(DetectHandMotion(hand_position, hand_motion)) {
-                for(i = 0; i < TOUCH_NUM; i++) {
-                    itoa(touch_bool[i], message, 10);
-                    UART_UartPutString(message);
-                }
-                for(i = 0; i < 2; i++) {
-                    UART_UartPutChar(' ');
-                    UART_UartPutChar(GetMotionChar(hand_motion[i]));
-                    itoa(hand_position[i], message, 10);
-                    sprintf(message, "% 0d", hand_position[i]);
-                    UART_UartPutString(message);
-                }
-                UART_UartPutString("  \r");
-                SendUARTKB(hand_motion[0]);
+                SetI2CBuffer(touch_bool, hand_motion);
             }
             UpdateCapSense();
         }
@@ -62,8 +55,11 @@ int main() {
 void InitUART(void) {
     UART_Start();
     UART_Enable();
-    UART_KB_Start();
-    UART_KB_Enable();
+}
+
+void InitI2C() {
+    EZI2C_Start();
+    EZI2C_EzI2CSetBuffer1(BUFFER_SIZE, 0, ezI2C_buffer);
 }
 
 void InitCapSense(void) {
@@ -114,11 +110,10 @@ void DetectHandPosition(int hand_position[2], int touch_bool[TOUCH_NUM]) {
 int DetectHandMotion(int hand_position[2], int hand_motion[2]) {
     static int hand_position_prev[2] = {-1, -1};
     int i, j;
-    int hand_moved = 0;
-    
+    int hand_moved = FALSE;
     for(i = 0; i < 2; i++) {
         if(hand_position[i] != hand_position_prev[i]){
-            hand_moved = 1;
+            hand_moved = TRUE;
         }
         for(j = 0; j < 3; j++) {
             if(hand_position[i] == hand_position_prev[i] + motion_list[j]) {
@@ -139,7 +134,32 @@ char GetMotionChar(int motion) {
     return motion_char[motion + 1];
 }
 
-void SendUARTKB(int motion) {
-    static const uint8 send_data_raw[3] = {0x08, 0x00, 0x04};
-    UART_KB_UartPutChar(send_data_raw[motion + 1]);
+void SetI2CBuffer(int touch_bool[TOUCH_NUM], int hand_motion[2]) {
+    int i, j;
+    int address;
+    for(i = 0; i < BUFFER_SIZE; i++) {
+        ezI2C_buffer[i] = 0;
+    }
+    if(hand_motion[0] == LEFT) {
+        ezI2C_buffer[0] |= 0x08;
+    } else if(hand_motion[0] == RIGHT) {
+        ezI2C_buffer[0] |= 0x04;
+    }
+    if(hand_motion[1] == LEFT) {
+        ezI2C_buffer[0] |= 0x02;
+    } else if(hand_motion[1] == RIGHT) {
+        ezI2C_buffer[0] |= 0x01;
+    }
+    for(i = 0; i < BUFFER_SIZE - 1; i++) {
+        for(j = 0; j < 8; j++) {
+            address = i * 8 + j;
+            if(address >= TOUCH_NUM) {
+                address = TOUCH_NUM - 1;
+            }
+            ezI2C_buffer[i + 1] |= (touch_bool[address] << (7 - j));
+        }
+    }
+    for(i = 0; i < TOUCH_NUM; i++) {
+        ezI2C_buffer[(i / 8) + 1] |= (touch_bool[i] << (7 - (i % 8)));
+    }
 }
