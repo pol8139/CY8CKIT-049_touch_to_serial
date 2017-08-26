@@ -2,12 +2,12 @@
 <CyXmlSerializer>
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
-<CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="CT8CKIT-049_touch_to_serial" persistent="CT8CKIT-049_touch_to_serial.cywrk" platform="NOT_USED">
-<current_project name=".\CT8CKIT-049_touch_to_serial.cydsn\CT8CKIT-049_touch_to_serial.cyprj" />
+<CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="CY8CKIT-049_touch_to_serial" persistent="CY8CKIT-049_touch_to_serial.cywrk" platform="NOT_USED">
+<current_project name=".\CY8CKIT-049_touch_to_serial.cydsn\CY8CKIT-049_touch_to_serial.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\CT8CKIT-049_touch_to_serial.cydsn\CT8CKIT-049_touch_to_serial.cyprj</v>
+<v>.\CY8CKIT-049_touch_to_serial.cydsn\CY8CKIT-049_touch_to_serial.cyprj</v>
 </projects>
 <workspace_id v="423b7617-0846-4698-8576-9ceefc5a6e09" />
 <WriteAppVersionLastSavedWith v="4.0.0.432" />
