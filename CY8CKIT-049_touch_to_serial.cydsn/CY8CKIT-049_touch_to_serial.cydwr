@@ -25,8 +25,8 @@
       <Data key="599543a4-1d5e-461e-a638-0aef79084e9d/7452d2ad-6927-4631-ada7-f0f5be9418ba" value="CapSenseP4_Sns" />
       <Data key="599543a4-1d5e-461e-a638-0aef79084e9d/cc19c666-c22b-4b9b-b13d-252fdd9c4502" value="CapSenseP4_Cmod" />
       <Data key="776276eb-02e4-46e1-907b-6d1bbad7d353/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="UART_KB_tx" />
-      <Data key="776276eb-02e4-46e1-907b-6d1bbad7d353/5382e105-1382-4a2e-b9f4-3bb2feba71e0" value="I2C_KB_sda" />
-      <Data key="776276eb-02e4-46e1-907b-6d1bbad7d353/22863ebe-a37b-476f-b252-6e49a8c00b12" value="I2C_KB_scl" />
+      <Data key="776276eb-02e4-46e1-907b-6d1bbad7d353/5382e105-1382-4a2e-b9f4-3bb2feba71e0" value="EZI2C_sda" />
+      <Data key="776276eb-02e4-46e1-907b-6d1bbad7d353/22863ebe-a37b-476f-b252-6e49a8c00b12" value="EZI2C_scl" />
       <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="ADC_0" />
       <Data key="87751362-f05a-4cc9-b296-a3539249d52a" value="ADC_1M" />
       <Data key="b2e995a3-8707-4f23-863c-c4376e243667" value="Timer_Pin" />

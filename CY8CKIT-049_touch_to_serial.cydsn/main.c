@@ -1,7 +1,7 @@
 #include <project.h>
 #include <stdlib.h>
 
-#define TOUCH_NUM CapSenseP4_TOTAL_CSD_WIDGETS
+#define TOUCH_NUM CapSenseP4_TOTAL_CSD_SENSORS
 
 #define BUFFER_SIZE 5
 
@@ -76,7 +76,7 @@ void DetectHandPosition(int hand_position[2], int touch_bool[TOUCH_NUM]) {
         hand_position[i] = -1;
     }
     for(i = 0; i < TOUCH_NUM; i++) {
-        touch_bool[i] = (CapSenseP4_IsWidgetActive(i) >> i);
+        touch_bool[i] = (CapSenseP4_IsSensorActive(0, i) >> i);
         if(hand_num >= 2) {
             break;
         }

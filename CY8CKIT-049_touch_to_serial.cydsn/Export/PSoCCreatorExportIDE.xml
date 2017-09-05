@@ -132,7 +132,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSenseP4_SensingCSD_LL.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSenseP4_SensingCSD_LL.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSenseP4_RegisterMap.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSenseP4_SmartSense_LL.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSenseP4_ISR.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\CapSenseP4_ISR.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\EZI2C.c</File>
