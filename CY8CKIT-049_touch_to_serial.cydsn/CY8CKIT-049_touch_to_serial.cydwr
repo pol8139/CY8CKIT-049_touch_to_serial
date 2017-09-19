@@ -24,6 +24,7 @@
       <Data key="8505eab3-325e-42bb-ba43-f135cff6969a" value="ADC_3" />
       <Data key="599543a4-1d5e-461e-a638-0aef79084e9d/7452d2ad-6927-4631-ada7-f0f5be9418ba" value="CapSenseP4_Sns" />
       <Data key="599543a4-1d5e-461e-a638-0aef79084e9d/cc19c666-c22b-4b9b-b13d-252fdd9c4502" value="CapSenseP4_Cmod" />
+      <Data key="599543a4-1d5e-461e-a638-0aef79084e9d/fda621bb-08c1-4eea-8d96-5e8ca429833e" value="CapSenseP4_Shield" />
       <Data key="776276eb-02e4-46e1-907b-6d1bbad7d353/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="UART_KB_tx" />
       <Data key="776276eb-02e4-46e1-907b-6d1bbad7d353/5382e105-1382-4a2e-b9f4-3bb2feba71e0" value="EZI2C_sda" />
       <Data key="776276eb-02e4-46e1-907b-6d1bbad7d353/22863ebe-a37b-476f-b252-6e49a8c00b12" value="EZI2C_scl" />
@@ -1361,6 +1362,11 @@
     <Group key="599543a4-1d5e-461e-a638-0aef79084e9d/cc19c666-c22b-4b9b-b13d-252fdd9c4502">
       <Group key="0">
         <Data key="Port Format" value="4,2" />
+      </Group>
+    </Group>
+    <Group key="599543a4-1d5e-461e-a638-0aef79084e9d/fda621bb-08c1-4eea-8d96-5e8ca429833e">
+      <Group key="0">
+        <Data key="Port Format" value="1,6" />
       </Group>
     </Group>
     <Group key="776276eb-02e4-46e1-907b-6d1bbad7d353/23b8206d-1c77-4e61-be4a-b4037d5de5fc">

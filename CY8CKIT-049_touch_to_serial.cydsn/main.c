@@ -29,7 +29,6 @@ int main() {
     
     CyGlobalIntEnable;      /* Enable global interrupts */
     
-    PWM_2_Start();
     InitUART();
     InitI2C();
     InitCapSense();
