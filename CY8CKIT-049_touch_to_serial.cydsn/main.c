@@ -12,7 +12,6 @@
 #define MIDDLE 0
 #define RIGHT 1
 
-void InitUART(void);
 void InitI2C(void);
 void InitCapSense(void);
 void UpdateCapSense(void);
@@ -29,7 +28,6 @@ int main() {
     
     CyGlobalIntEnable;      /* Enable global interrupts */
     
-    InitUART();
     InitI2C();
     InitCapSense();
     int hand_position[2];
@@ -44,11 +42,6 @@ int main() {
             UpdateCapSense();
         }
     }
-}
-
-void InitUART(void) {
-    UART_Start();
-    UART_Enable();
 }
 
 void InitI2C() {

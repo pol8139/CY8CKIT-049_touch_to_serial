@@ -56,27 +56,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cyfitteriar.inc</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cyfitter.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cydisabledsheets.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_UART.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_UART_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_PINS.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SPI_UART_PVT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_PVT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_BOOT.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bootloadable_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bootloadable_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SCBCLK.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_SCBCLK.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_tx.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_tx.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_tx_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_tx_PM.c</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">Generated_Source\PSoC4\cm0gcc.ld</File>
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">Generated_Source\PSoC4\Cm0RealView.scat</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Cm0Start.c</File>
