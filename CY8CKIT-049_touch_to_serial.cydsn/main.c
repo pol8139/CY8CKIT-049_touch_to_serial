@@ -31,7 +31,7 @@ int main() {
     InitI2C();
     InitCapSense();
     int hand_position[2];
-    int touch_bool[TOUCH_NUM];
+    int touch_bool[TOUCH_NUM] = {};
     int hand_motion[2] = {MIDDLE, MIDDLE};
     while(1) {
         if(!CapSenseP4_IsBusy()) {
@@ -88,7 +88,6 @@ void DetectHandPosition(int hand_position[2], int touch_bool[TOUCH_NUM]) {
             hand_position[hand_num] += TOUCH_NUM;
             hand_num++;
         }
-
     }
     //hand_position[0] /= 2;
     //hand_position[1] /= 2;
@@ -101,17 +100,17 @@ int DetectHandMotion(int hand_position[2], int hand_motion[2]) {
     for(i = 0; i < 2; i++) {
         if(hand_position[i] != hand_position_prev[i]){
             hand_moved = TRUE;
-        }
-        for(j = 0; j < 3; j++) {
-            if(hand_position[i] == hand_position_prev[i] + motion_list[j]) {
-                hand_motion[i] = motion_list[j];
-                break;
+            for(j = 0; j < 3; j++) {
+                if(hand_position[i] == hand_position_prev[i] + motion_list[j]) {
+                    hand_motion[i] = motion_list[j];
+                    break;
+                }
             }
+            if(hand_position[i] == -1) {
+                hand_motion[i] = MIDDLE;
+            }
+            hand_position_prev[i] = hand_position[i];
         }
-        if(hand_position[i] == -1) {
-            hand_motion[i] = MIDDLE;
-        }
-        hand_position_prev[i] = hand_position[i];
     }
     return hand_moved;
 }
