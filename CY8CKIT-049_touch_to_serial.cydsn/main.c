@@ -89,8 +89,11 @@ void DetectHandPosition(int hand_position[2], int touch_bool[TOUCH_NUM]) {
             hand_num++;
         }
     }
-    //hand_position[0] /= 2;
-    //hand_position[1] /= 2;
+    for(i = 0; i < 2; i++) {
+        if(hand_position[i] > 0) {
+            hand_position[i] /= 2;
+        }
+    }
 }
 
 int DetectHandMotion(int hand_position[2], int hand_motion[2]) {
