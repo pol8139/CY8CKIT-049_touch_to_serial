@@ -124,9 +124,9 @@ void SetI2CBuffer(int touch_bool[TOUCH_NUM], int hand_motion[2]) {
         ezI2C_buffer[i] = 0;
     }
     if(hand_motion[0] == LEFT) {
-        ezI2C_buffer[0] |= 0x08;
+        ezI2C_buffer[0] |= 0x88;
     } else if(hand_motion[0] == RIGHT) {
-        ezI2C_buffer[0] |= 0x04;
+        ezI2C_buffer[0] |= 0x44;
     }
     if(hand_motion[1] == LEFT) {
         ezI2C_buffer[0] |= 0x02;
