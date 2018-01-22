@@ -94,6 +94,10 @@ void DetectHandPosition(int hand_position[2], int touch_bool[TOUCH_NUM]) {
             hand_position[i] /= 2;
         }
     }
+    if(TOUCH_NUM / 2 < hand_position[0] && hand_position[1] == -1) {
+        hand_position[1] = hand_position[0];
+        hand_position[0] = -1;
+    }
 }
 
 int DetectHandMotion(int hand_position[2], int hand_motion[2]) {
@@ -129,9 +133,9 @@ void SetI2CBuffer(int touch_bool[TOUCH_NUM], int hand_motion[2]) {
         ezI2C_buffer[0] |= 0x44;
     }
     if(hand_motion[1] == LEFT) {
-        ezI2C_buffer[0] |= 0x02;
+        ezI2C_buffer[0] |= 0x82;
     } else if(hand_motion[1] == RIGHT) {
-        ezI2C_buffer[0] |= 0x01;
+        ezI2C_buffer[0] |= 0x41;
     }
     for(i = 0; i < TOUCH_NUM; i++) {
         ezI2C_buffer[(i / 8) + 1] |= (touch_bool[i] << (7 - (i % 8)));
