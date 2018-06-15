@@ -1,4 +1,5 @@
 *.cywrk.*
+*.cywrk
 *.cyprj.*
 *.cycdx
 *.cyfit
@@ -10,3 +11,5 @@
 *.cydsn/CortexM0
 *.cydsn/Generated_Source
 *.pdf
+*.svd
+*.Export
