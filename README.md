@@ -1,4 +1,4 @@
-CT8CKIT-049_touch_to_serial
+CY8CKIT-049_touch_to_serial
 ===
 
 PSoC 4200 Prototyping Kit (CY8CKIT-049-42XX)で、横一列に配線されたタッチセンサに触っている手の状態を取得し、手が左右どちらに動いているかを検出してシリアル(今の所I2C)で送信します。自作Project DIVA Arcadeコントローラのスライダー部分に使っています。
@@ -10,6 +10,6 @@ PSoC 4200 Prototyping Kit (CY8CKIT-049-42XX)で、横一列に配線されたタ
 ```bash
 $ git clone (ここ).git
 $ ls
-CT8CKIT-049_touch_to_serial SCB_Bootloader
+CY8CKIT-049_touch_to_serial SCB_Bootloader
 ```
 PSoC Creator上でビルドし、ブートローダーを経由してバイナリを書き込みます。
